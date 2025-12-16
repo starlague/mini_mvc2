@@ -10,6 +10,9 @@ use Mini\Core\Router;
 $routes = [
     ['GET', '/', [Mini\Controllers\HomeController::class, 'index']],
     ['GET', '/users', [Mini\Controllers\HomeController::class, 'users']],
+    ['GET', '/signin', [Mini\Controllers\HomeController::class, 'signin']], //pour avoir accès à une view tjrs en GET
+    ['GET', '/login', [Mini\Controllers\HomeController::class, 'login']],
+    ['GET', '/produits', [Mini\Controllers\HomeController::class, 'produits']],
 ];
 
 // Bootstrap du router

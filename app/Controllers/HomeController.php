@@ -29,6 +29,28 @@ final class HomeController extends Controller
         $this->render('home/users', [
             // Définit le titre transmis à la vue
             'users' => $users = User::getAll(),
+            'title' => 'Liste des utilisateurs',
+        ]);
+    }
+
+    public function signin(): void
+    {
+        $this->render('home/inscription', [
+            'title' => 'Inscription',
+        ]);
+    }
+
+    public function login(): void  
+    {
+        $this->render('home/connexion', [
+            'title'=> 'Connexion',
+        ]);
+    }
+
+    public function produits(): void
+    {
+        $this->render('home/produits', [
+            'title'=> 'Nos Produits',
         ]);
     }
 }
