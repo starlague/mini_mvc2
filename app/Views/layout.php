@@ -16,6 +16,9 @@
 <header>
     <!-- Affiche le titre principal avec échappement -->
     <h1><?= isset($title) ? htmlspecialchars($title) : 'App' ?></h1>
+    <a href="">Nos produits</a>
+    <a href="">Vos commandes</a>
+    <a href="">Nous contacter</a>
 </header>
 <!-- Zone de contenu principal -->
 <main>
