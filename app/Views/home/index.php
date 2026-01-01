@@ -1,12 +1,20 @@
 <!-- Paragraphe d'accueil affiché sur la page d'accueil -->
-<p>Bienvenue sur le mini MVC. Tout fonctionne ✅</p>
+<div>
+    <h2 class="text-center mb-3">Nos produits</h2>
 
-<h1>Mon prénom est <?= $prenom ?></h1>
-
-<h2>Le titre est <?= $title ?></h2>
-
-<h2>Le 2eme prénom est <?= $prenom2 ?></h2>
-
-<a href="/users">Liste des utilisateurs</a>
-
-
+    <div class="d-grid w-75 mx-auto gap-5" style="grid-template-columns: repeat(4, 1fr);">
+        <?php foreach ($produits as $produit): ?>
+            <div class="card d-flex align-items-center p-2">
+                <div class="container-img">
+                    <img src="/img/produitImg/<?= $produit['image'] ?>" alt="">
+                </div>
+                <p><?= $produit['nom'];?></p>
+                <p><?= $produit['prix'];?> €</p>
+     
+                <a href="/details?id=<?= $produit['id'] ?>" class="detail">Description</a>
+                <a href="" class="add">Ajouter au panier</a>
+            </div>
+    
+        <?php endforeach; ?>
+    </div>
+</div>

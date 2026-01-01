@@ -1,4 +1,8 @@
-<h1>Liste des utilisateurs</h1>
+<?php
+
+?>
+
+<h2>Liste des utilisateurs</h2>
 
     <?php if (!empty($users)) : ?>
         <table>

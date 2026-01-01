@@ -9,6 +9,7 @@ use PDO;
 class User
 {
     private $id;
+    private $prenom;
     private $nom;
     private $email;
 
@@ -26,7 +27,17 @@ class User
         $this->id = $id;
     }
 
-    public function getnom()
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    public function getNom()
     {
         return $this->nom;
     }
@@ -94,8 +105,8 @@ class User
     public function save()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("INSERT INTO user (nom, email) VALUES (?, ?)");
-        return $stmt->execute([$this->nom, $this->email]);
+        $stmt = $pdo->prepare("INSERT INTO user (prenom, nom, email) VALUES (?, ?, ?)");
+        return $stmt->execute([$this->prenom, $this->nom, $this->email]);
     }
 
     /**
@@ -105,8 +116,8 @@ class User
     public function update()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("UPDATE user SET nom = ?, email = ? WHERE id = ?");
-        return $stmt->execute([$this->nom, $this->email, $this->id]);
+        $stmt = $pdo->prepare("UPDATE user SET prenom = ?, nom = ?, email = ? WHERE id = ?");
+        return $stmt->execute([$this->prenom, $this->nom, $this->email, $this->id]);
     }
 
     /**
