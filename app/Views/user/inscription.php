@@ -1,3 +1,15 @@
+<?php
+//mettre le user en session?
+session_start();
+?>
+
+<?php if (!empty($_SESSION['error'])): ?>
+    <div class="error text-center">
+        <?= htmlspecialchars($_SESSION['error']) ?>
+    </div>
+    <?php unset($_SESSION['error']); ?>
+<?php endif; ?>
+
 <h2 class="text-center mb-3">Inscription</h2>
 
 <div class="d-flex justify-content-center">
@@ -22,7 +34,3 @@
         </div>
     </form>
 </div>
-<?php
-//mettre le user en session?
-session_start();
-?>

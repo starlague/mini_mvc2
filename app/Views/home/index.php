@@ -6,13 +6,13 @@
         <?php foreach ($produits as $produit): ?>
             <div class="card d-flex align-items-center p-2">
                 <div class="container-img">
-                    <img src="/img/produitImg/<?= $produit['image'] ?>" alt="">
+                    <img src="/img/produitImg/<?= htmlspecialchars($produit['image']) ?>" alt="">
                 </div>
-                <p><?= $produit['nom'];?></p>
-                <p><?= $produit['prix'];?> €</p>
+                <p><?= htmlspecialchars($produit['nom']) ?></p>
+                <p><?= htmlspecialchars($produit['prix']) ?> €</p>
      
                 <a href="/details?id=<?= $produit['id'] ?>" class="detail">Description</a>
-                <a href="" class="add">Ajouter au panier</a>
+                <a href="/panier/add?produit_id=<?= $produit['id'] ?>&quantite=1" class="add">Ajouter au panier</a>
             </div>
     
         <?php endforeach; ?>

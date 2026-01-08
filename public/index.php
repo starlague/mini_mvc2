@@ -9,15 +9,21 @@ use Mini\Core\Router;
 // Table des routes minimaliste
 $routes = [ //pour avoir accès à une view tjrs en GET et utiliser POST avec une autre méthode pour envoyer les données à la BDD
     ['GET', '/', [Mini\Controllers\HomeController::class, 'index']],//route vers l'accueil
-    ['GET', '/users', [Mini\Controllers\HomeController::class, 'users']], //route vers la liste de tous les users
-    ['GET', '/signin', [Mini\Controllers\HomeController::class, 'signin']], 
-    ['POST', '/signin', [Mini\Controllers\HomeController::class, 'createUser']], 
-    ['GET', '/login', [Mini\Controllers\HomeController::class, 'login']],
-    ['POST', '/login', [Mini\Controllers\HomeController::class,'userExisting']],
+
+    //pages liées aux utilisateurs
+    ['GET', '/signin', [Mini\Controllers\UserController::class, 'signin']], 
+    ['POST', '/signin', [Mini\Controllers\UserController::class, 'createUser']], 
+    ['GET', '/login', [Mini\Controllers\UserController::class, 'login']],
+    ['POST', '/login', [Mini\Controllers\UserController::class,'userExisting']],
 
     //pages liées aux produits
-    ['GET', '/produits', [Mini\Controllers\HomeController::class, 'produits']],
-    ['GET', '/details', [Mini\Controllers\HomeController::class, 'detailsProduit']],
+    ['GET', '/details', [Mini\Controllers\ProduitController::class, 'productDetails']],
+
+    //pages liées au panier
+    ['GET', '/panier', [Mini\Controllers\PanierController::class,'panier']],
+    ['GET', '/panier/add', [Mini\Controllers\PanierController::class,'addToCart']],
+    ['GET', '/panier/decrease', [Mini\Controllers\PanierController::class,'decrease']],
+    ['GET', '/panier/delete', [Mini\Controllers\PanierController::class,'delete']],
 ];
 
 // Bootstrap du router

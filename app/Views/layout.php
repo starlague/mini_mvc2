@@ -24,12 +24,11 @@
 
         <nav class="d-flex gap-3 mx-auto">
             <a href="/" class="nav">Accueil <i class="bi bi-house"></i></a> 
-            <a href="" class="nav">Votre panier <i class="bi bi-cart4"></i></a> 
+            <a href="/panier" class="nav">Votre panier <i class="bi bi-cart4"></i></a> 
             <a href="" class="nav">Vos commandes <i class="bi bi-box-seam"></i></a> 
             <a href="" class="nav">Nous contacter <i class="bi bi-envelope"></i></a> 
         </nav>
         
-        <a href="/users">no utilisateurs</a> |
         <div class=" d-flex gap-2">
             <a href="/signin" class="signin">S'inscrire <i class="bi bi-person-plus"></i></a> 
             <a href="/login" class="login">Se connecter <i class="bi bi-box-arrow-in-right"></i></a> 

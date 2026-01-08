@@ -5,7 +5,6 @@ use Mini\Core\Database;
 use PDO;
 
 class Produit {
-
     //attributs
     private int $id;
     private string $nom;
