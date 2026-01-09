@@ -10,7 +10,12 @@
             </tr>
         </thead>
         <tbody class="table-group-divider-black">
-            <?php foreach ($articles as $article): ?>
+            <?php 
+            $total = 0;
+            foreach ($articles as $article): 
+                $totalArticle = $article['prix'] * $article['quantite'];
+                $total += $totalArticle;
+            ?>
                 <tr>
                     <td>
                         <div class="d-flex align-items-center">
@@ -29,9 +34,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="text-center"><?= $article['nom'] . ' x' . $article['quantite'] . ' = ' . ($article['prix'] * $article['quantite']) . '€'; ?></td>
+                    <td colspan="3" class="text-center"><?= $article['nom'] . ' x ' . $article['quantite'] . ' = ' . $totalArticle . '€'; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
+        <tfoot>
+            <td>Total</td>
+            <td colspan="2" class="text-end"> <?= $total ?> €</td>
+        </tfoot>
     </table>
 </div>

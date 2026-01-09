@@ -1,6 +1,5 @@
 <?php
 //mettre le user en session?
-session_start();
 ?>
 
 <?php if (!empty($_SESSION['error'])): ?>

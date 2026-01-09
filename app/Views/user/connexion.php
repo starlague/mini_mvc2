@@ -1,7 +1,6 @@
 <?php
 //vérifier que l'email est dans la base de donnée 
 //et peut-être le mettre en session
-session_start()
 ?>
 
 <?php if (!empty($_SESSION['error'])): ?>

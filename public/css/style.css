@@ -1,5 +1,5 @@
 /* style principal */
-body{
+body {
     padding: 5px;
     background-image: url(../img/plante-background.png);
     background-size: cover;  
@@ -25,44 +25,62 @@ header {
     border-radius: 5px;
 }
 
+.product-container {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}
+
 /* style des boutons/liens */
-.signin{
+.signin {
     text-decoration: none;
     background-color: white;
     color: green;
     border-radius: 5px;
     border: 1px solid green;
     padding: 5px 10px;
+    transition: transform 0.3s;
 }
 
-.detail, .nav{
+.detail, .nav {
     color: green;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: color .5s,  text-decoration-color 0.5s;
+}
+.nav:hover {
+    color: black;
+    text-decoration-color: currentColor;
 }
 
-.add, .login, .submit, .remove{
+.add, .login, .submit, .remove {
     text-decoration: none;
     background-color: green;
     color: white;
     border-radius: 5px;
     padding: 5px 10px;
+    transition: transform 0.3s;
 }
 
-.submit{
+.submit {
     border: none;
 }
 
-.delete{
+.delete, .logout {
     text-decoration: none;
     background-color: red;
     color: white;
     border-radius: 5px;
     padding: 5px 10px;
+    transition: transform 0.3s;
+}
+.logout:hover, .add:hover, .login:hover, .signin:hover {
+    transform: scale(1.05);
 }
 
 
 /* style pour les images */
-.container-img{
+.container-img {
     aspect-ratio: 1 / 1;
     width: 100%;
     overflow: hidden;
@@ -77,7 +95,7 @@ header {
     object-fit: contain;
 }
 
-.error {
+.error{
     color: #b00020;
     background: #fdecea;
     padding: 10px;

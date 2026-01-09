@@ -1,3 +1,8 @@
+<?php 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!doctype html>
 <!-- Définit la langue du document -->
 <html lang="fr">
@@ -16,25 +21,29 @@
 <!-- Corps du document -->
 <body>
 <!-- En-tête de la page -->
-<header class="p-2 mb-5">
+<header class="p-2 mb-5 sticky-top d-grid "style="grid-template-columns: repeat(3, 1fr);">
     <!-- Affiche le titre principal avec échappement -->
-    <div class="d-flex align-items-center">
+    
         <!-- <h1><?= isset($title) ? htmlspecialchars($title) : 'App' ?></h1> -->
         <h1 class="me-3">Boutique en ligne</h1>
 
-        <nav class="d-flex gap-3 mx-auto">
-            <a href="/" class="nav">Accueil <i class="bi bi-house"></i></a> 
-            <a href="/panier" class="nav">Votre panier <i class="bi bi-cart4"></i></a> 
-            <a href="" class="nav">Vos commandes <i class="bi bi-box-seam"></i></a> 
-            <a href="" class="nav">Nous contacter <i class="bi bi-envelope"></i></a> 
+        <nav class="d-flex gap-3 align-items-center">
+            <a href="/" class="nav"><span>Accueil <i class="bi bi-house"></i></span></a> 
+            <a href="/panier" class="nav"><span>Votre panier <i class="bi bi-cart4"></i></span></a> 
+            <a href="" class="nav"><span>Vos commandes <i class="bi bi-box-seam"></i></span></a> 
+            <a href="" class="nav"><span>Nous contacter <i class="bi bi-envelope"></i></span></a> 
         </nav>
         
-        <div class=" d-flex gap-2">
-            <a href="/signin" class="signin">S'inscrire <i class="bi bi-person-plus"></i></a> 
-            <a href="/login" class="login">Se connecter <i class="bi bi-box-arrow-in-right"></i></a> 
+        <div class="d-flex gap-2 ms-auto align-items-center">
+            <?php if (!isset($_SESSION['user'])): ?>
+                <a href="/signin" class="signin">S'inscrire <i class="bi bi-person-plus"></i></a> 
+                <a href="/login" class="login">Se connecter <i class="bi bi-box-arrow-in-right"></i></a> 
+            <?php else : ?>
+                <a href="/logout" class="logout"> Se déconnecter  <i class="bi bi-box-arrow-left"></i></a>
+            <?php endif; ?>
         </div>
         
-    </div>
+   
 </header>
 <!-- Zone de contenu principal -->
 <main>

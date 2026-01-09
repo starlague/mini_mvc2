@@ -15,6 +15,7 @@ $routes = [ //pour avoir accès à une view tjrs en GET et utiliser POST avec un
     ['POST', '/signin', [Mini\Controllers\UserController::class, 'createUser']], 
     ['GET', '/login', [Mini\Controllers\UserController::class, 'login']],
     ['POST', '/login', [Mini\Controllers\UserController::class,'userExisting']],
+    ['GET', '/logout', [Mini\Controllers\UserController::class,'logout']],
 
     //pages liées aux produits
     ['GET', '/details', [Mini\Controllers\ProduitController::class, 'productDetails']],

@@ -9,7 +9,9 @@ use Mini\Models\Panier;
 class PanierController extends Controller {
     public function panier() 
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
         if (!isset($_SESSION['user'])) {
             header('Location: /signin');
@@ -27,7 +29,9 @@ class PanierController extends Controller {
 
     public function addToCart()
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
         if (!isset($_SESSION['user'])) {
             header('Location: /signin');
@@ -51,7 +55,9 @@ class PanierController extends Controller {
 
     public function decrease() 
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
         $userId    = $_SESSION['user']['id'];
         $produitId = (int)$_GET['produit_id'];
@@ -65,7 +71,9 @@ class PanierController extends Controller {
 
     public function delete()
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
         $userId    = $_SESSION['user']['id'];
         $produitId = (int)$_GET['produit_id'];

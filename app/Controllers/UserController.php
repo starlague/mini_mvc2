@@ -80,4 +80,14 @@ class UserController extends Controller
         header('Location: /');
         exit;
     }
+
+    public function logout() 
+    {
+        session_start();
+        session_destroy();
+        
+        header('Location: /');
+        exit;
+    }
+
 }

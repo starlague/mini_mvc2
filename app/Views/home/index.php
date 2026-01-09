@@ -8,7 +8,7 @@
                 <div class="container-img">
                     <img src="/img/produitImg/<?= htmlspecialchars($produit['image']) ?>" alt="">
                 </div>
-                <p><?= htmlspecialchars($produit['nom']) ?></p>
+                <p><strong><?= htmlspecialchars($produit['nom']) ?></strong></p>
                 <p><?= htmlspecialchars($produit['prix']) ?> €</p>
      
                 <a href="/details?id=<?= $produit['id'] ?>" class="detail">Description</a>
