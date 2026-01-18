@@ -30,7 +30,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <nav class="d-flex gap-3 align-items-center justify-content-center">
             <a href="/" class="nav"><span>Accueil <i class="bi bi-house"></i></span></a> 
             <a href="/panier" class="nav"><span>Votre panier <i class="bi bi-cart4"></i></span></a> 
-            <a href="" class="nav"><span>Vos commandes <i class="bi bi-box-seam"></i></span></a> 
+            <a href="/commande/history" class="nav"><span>Vos commandes <i class="bi bi-box-seam"></i></span></a> 
             <a href="" class="nav"><span>Nous contacter <i class="bi bi-envelope"></i></span></a> 
         </nav>
         
