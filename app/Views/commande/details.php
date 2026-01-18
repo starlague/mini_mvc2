@@ -1,7 +1,6 @@
 <h2 class="text-center mb-4">Détails de la commande #<?= $commande['id'] ?></h2>
 
 <div class="w-75 mx-auto">
-    <!-- Informations générales de la commande -->
     <div class="card mb-4">
         <div class="card-header">
             <h5 class="mb-0">Informations de la commande</h5>
@@ -18,7 +17,7 @@
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <p><strong>Total :</strong> <span class="fs-4 text-primary"><?= number_format($commande['total'], 2, ',', ' ') ?> €</span></p>
+                    <p><strong>Total :</strong> <span class="fs-4 important"><?= number_format($commande['total'], 2, ',', ' ') ?> €</span></p>
                     <?php if (!empty($commande['adresse_livraison'])): ?>
                         <p><strong>Adresse de livraison :</strong></p>
                         <p class="text-muted"><?= nl2br(htmlspecialchars($commande['adresse_livraison'])) ?></p>
@@ -28,7 +27,6 @@
         </div>
     </div>
 
-    <!-- Liste des produits commandés -->
     <div class="card">
         <div class="card-header">
             <h5 class="mb-0">Produits commandés</h5>
@@ -72,16 +70,15 @@
                 <tfoot class="table-light">
                     <tr>
                         <th colspan="3" class="text-end">Total de la commande :</th>
-                        <th class="text-primary"><?= number_format($commande['total'], 2, ',', ' ') ?> €</th>
+                        <th><p class="important"><?= number_format($commande['total'], 2, ',', ' ') ?> €</p></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 
-    <!-- Boutons d'action -->
     <div class="text-center mt-4">
         <a href="/commande/history" class="btn btn-secondary">Retour à mes commandes</a>
-        <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+        <a href="/" class="btn btn-success">Retour à l'accueil</a>
     </div>
 </div>

@@ -9,7 +9,7 @@
         <p class="fs-3"><?= htmlspecialchars($produit['nom']) ?></p>
         <p><?= htmlspecialchars($produit['prix']) ?> €</p>
         <p><?= htmlspecialchars($produit['description']) ?></p>
-        <div>
+        <div class="d-flex">
             <a href="/panier/add?produit_id=<?= $produit['id'] ?>&quantite=1" class="add">Ajouter au panier</a>
         </div>
     </div>

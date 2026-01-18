@@ -26,7 +26,7 @@
                             </span>
                         </td>
                         <td>
-                            <a href="/commande/details?id=<?= $commande['id'] ?>" class="btn btn-sm btn-primary">Détails</a>
+                            <a href="/commande/details?id=<?= $commande['id'] ?>" class="btn btn-sm btn-success">Détails</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -62,17 +62,13 @@ class Commande {
         $this->adresseLivraison = $adresseLivraison;
     }
 
-    /**
-     * Crée une commande à partir du panier de l'utilisateur
-     * Lit directement depuis la table paniers et transfère vers commandes
-     */
     public function createFromPanier(string $adresseLivraison): bool {
         $pdo = Database::getPDO();
         
         try {
             $pdo->beginTransaction();
             
-            // Récupération des articles du panier avec leurs prix
+            //récupération des articles du panier avec leurs prix
             $sql = "SELECT p.id, p.prix, pa.quantite
                     FROM paniers pa
                     JOIN produits p ON p.id = pa.produit_id
@@ -86,20 +82,20 @@ class Commande {
                 return false;
             }
             
-            // Calcul du total
+            //calcul du total
             $total = 0;
             foreach ($panierItems as $item) {
                 $total += $item['prix'] * $item['quantite'];
             }
             
-            // Insertion de la commande
+            //insertion de la commande
             $sql = "INSERT INTO commandes (user_id, total, statut, adresse_livraison) 
                     VALUES (?, ?, 'en_attente', ?)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$this->userId, $total, $adresseLivraison]);
             $commandeId = $pdo->lastInsertId();
             
-            // Transfert des produits du panier vers commande_produit
+            //transfert des produits du panier vers commande_produit
             $sql = "INSERT INTO commande_produit (commande_id, produit_id, quantite, prix_unitaire) 
                     VALUES (?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
@@ -113,7 +109,7 @@ class Commande {
                 ]);
             }
             
-            // Vider le panier après validation (suppression de tous les articles)
+            //vider le panier après validation (suppression de tous les articles)
             $sql = "DELETE FROM paniers WHERE user_id = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$this->userId]);
@@ -130,9 +126,6 @@ class Commande {
         }
     }
 
-    /**
-     * Récupère toutes les commandes d'un utilisateur
-     */
     public static function getUserOrders(int $userId): array {
         $pdo = Database::getPDO();
         $sql = "SELECT * FROM commandes WHERE user_id = ? ORDER BY date_commande DESC";
@@ -141,13 +134,10 @@ class Commande {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * Récupère une commande avec ses produits
-     */
     public static function getOrderWithProducts(int $commandeId): array {
         $pdo = Database::getPDO();
         
-        // Récupération de la commande
+        //récupération de la commande
         $sql = "SELECT * FROM commandes WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$commandeId]);
@@ -157,7 +147,7 @@ class Commande {
             return [];
         }
         
-        // Récupération des produits de la commande
+        //récupération des produits de la commande
         $sql = "SELECT cp.*, p.nom, p.image 
                 FROM commande_produit cp
                 JOIN produits p ON p.id = cp.produit_id
@@ -169,9 +159,6 @@ class Commande {
         return $commande;
     }
 
-    /**
-     * Met à jour le statut d'une commande
-     */
     public function updateStatut(string $nouveauStatut): bool {
         $pdo = Database::getPDO();
         $sql = "UPDATE commandes SET statut = ? WHERE id = ?";

@@ -9,10 +9,8 @@ use Mini\Models\Panier;
 
 class CommandeController extends Controller {
     
-    /**
-     * Affiche le formulaire de validation de commande
-     * Utilise la méthode getUserCart() existante du Panier
-     */
+    //affiche le formulaire de validation de commande
+    //utilise la méthode getUserCart() existante du Panier
     public function checkout() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -31,7 +29,7 @@ class CommandeController extends Controller {
             exit;
         }
 
-        // Calcul du total (comme dans la vue panier)
+        //calcul du total (comme dans la vue panier)
         $total = 0;
         foreach ($articles as $article) {
             $total += $article['prix'] * $article['quantite'];
@@ -44,10 +42,8 @@ class CommandeController extends Controller {
         ]);
     }
 
-    /**
-     * Traite la validation de la commande
-     * Transfère les données du panier vers la commande
-     */
+    //traite la validation de la commande
+    //transfère les données du panier vers la commande
     public function validate() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -71,7 +67,7 @@ class CommandeController extends Controller {
             exit;
         }
 
-        // Vérifier que le panier n'est pas vide
+        //vérifier que le panier n'est pas vide
         $panier = new Panier();
         $articles = $panier->getUserCart($_SESSION['user']['id']);
 
@@ -81,7 +77,7 @@ class CommandeController extends Controller {
             exit;
         }
 
-        // Créer la commande depuis le panier
+        //créer la commande depuis le panier
         $commande = new Commande();
         $commande->setUserId($_SESSION['user']['id']);
         
@@ -96,9 +92,7 @@ class CommandeController extends Controller {
         }
     }
 
-    /**
-     * Affiche la page de confirmation
-     */
+    //affiche la page de confirmation
     public function success() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -123,9 +117,7 @@ class CommandeController extends Controller {
         ]);
     }
 
-    /**
-     * Affiche l'historique des commandes
-     */
+    //affiche l'historique des commandes
     public function history() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -144,9 +136,7 @@ class CommandeController extends Controller {
         ]);
     }
 
-    /**
-     * Affiche les détails d'une commande
-     */
+    //affiche les détails d'une commande
     public function details() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();

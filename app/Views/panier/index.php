@@ -51,7 +51,7 @@
     <?php endif; ?>
     <?php if (!empty($articles)): ?>
         <div class="text-center mt-4">
-            <a href="/commande/checkout" class="btn btn-primary btn-lg">Valider la commande</a>
+            <a href="/commande/checkout" class="btn btn-success">Valider la commande</a>
         </div>
     <?php endif; ?>
 </div>

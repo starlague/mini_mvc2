@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <h3>Récapitulatif</h3>
             <table class="table">
-                <thead>
+                <thead class="table-light">
                     <tr>
                         <th>Produit</th>
                         <th>Prix</th>
@@ -44,7 +44,7 @@
                     <label for="adresse_livraison" class="form-label">Adresse complète</label>
                     <textarea class="form-control" id="adresse_livraison" name="adresse_livraison" rows="4" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Valider la commande</button>
+                <button type="submit" class=" btn btn-success w-100">Valider la commande</button>
             </form>
         </div>
     </div>
