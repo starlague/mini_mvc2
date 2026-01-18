@@ -43,4 +43,9 @@
             <td colspan="2" class="text-end"> <?= $total ?> €</td>
         </tfoot>
     </table>
+    <?php if (!empty($articles)): ?>
+        <div class="text-center mt-4">
+            <a href="/commande/checkout" class="btn btn-primary btn-lg">Valider la commande</a>
+        </div>
+    <?php endif; ?>
 </div>

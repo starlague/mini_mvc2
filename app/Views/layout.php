@@ -27,7 +27,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <!-- <h1><?= isset($title) ? htmlspecialchars($title) : 'App' ?></h1> -->
         <h1 class="me-3">Boutique en ligne</h1>
 
-        <nav class="d-flex gap-3 align-items-center">
+        <nav class="d-flex gap-3 align-items-center justify-content-center">
             <a href="/" class="nav"><span>Accueil <i class="bi bi-house"></i></span></a> 
             <a href="/panier" class="nav"><span>Votre panier <i class="bi bi-cart4"></i></span></a> 
             <a href="" class="nav"><span>Vos commandes <i class="bi bi-box-seam"></i></span></a> 
@@ -41,9 +41,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php else : ?>
                 <a href="/logout" class="logout"> Se déconnecter  <i class="bi bi-box-arrow-left"></i></a>
             <?php endif; ?>
-        </div>
-        
-   
+        </div>  
 </header>
 <!-- Zone de contenu principal -->
 <main>

@@ -25,6 +25,13 @@ $routes = [ //pour avoir accès à une view tjrs en GET et utiliser POST avec un
     ['GET', '/panier/add', [Mini\Controllers\PanierController::class,'addToCart']],
     ['GET', '/panier/decrease', [Mini\Controllers\PanierController::class,'decrease']],
     ['GET', '/panier/delete', [Mini\Controllers\PanierController::class,'delete']],
+
+    //pages liées aux commandes
+    ['GET', '/commande/checkout', [Mini\Controllers\CommandeController::class, 'checkout']],
+    ['POST', '/commande/validate', [Mini\Controllers\CommandeController::class, 'validate']],
+    ['GET', '/commande/success', [Mini\Controllers\CommandeController::class, 'success']],
+    ['GET', '/commande/history', [Mini\Controllers\CommandeController::class, 'history']],
+    ['GET', '/commande/details', [Mini\Controllers\CommandeController::class, 'details']],
 ];
 
 // Bootstrap du router
